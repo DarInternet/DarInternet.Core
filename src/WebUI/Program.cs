@@ -25,7 +25,7 @@ namespace DarInternet.WebUI
                 {
                     var context = services.GetRequiredService<ApplicationDbContext>();
 
-                    if (context.Database.IsSqlServer())
+                    if (context.Database.IsInMemory()==false)
                     {
                         context.Database.Migrate();
                     }                   
