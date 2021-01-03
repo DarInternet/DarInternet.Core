@@ -234,3 +234,6 @@ _Pvt_Extensions
 .fake/
 /NDependOut
 /DarInternet.ndproj
+
+# Visual Studio Code
+.vscode/
