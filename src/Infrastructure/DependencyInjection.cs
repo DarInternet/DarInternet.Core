@@ -32,7 +32,10 @@ namespace DarInternet.Infrastructure
 
             services.AddScoped<IDomainEventService, DomainEventService>();
 
-                 
+            services
+                .AddIdentity<ApplicationUser,IdentityRole>()
+                .AddEntityFrameworkStores<ApplicationDbContext>();
+
 
             services.AddTransient<IDateTime, DateTimeService>();
             services.AddTransient<IIdentityService, IdentityService>();

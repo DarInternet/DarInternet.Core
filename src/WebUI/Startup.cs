@@ -11,8 +11,6 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using NSwag;
-using NSwag.Generation.Processors.Security;
 using System.Linq;
 
 namespace DarInternet.WebUI
@@ -49,22 +47,12 @@ namespace DarInternet.WebUI
             services.Configure<ApiBehaviorOptions>(options =>
             {
                 options.SuppressModelStateInvalidFilter = true;
-            });
-         
+            });       
 
-            services.AddOpenApiDocument(configure =>
-            {
-                configure.Title = "DarInternet API";
-                configure.AddSecurity("JWT", Enumerable.Empty<string>(), new OpenApiSecurityScheme
-                {
-                    Type = OpenApiSecuritySchemeType.ApiKey,
-                    Name = "Authorization",
-                    In = OpenApiSecurityApiKeyLocation.Header,
-                    Description = "Type into the textbox: Bearer {your JWT token}."
-                });
 
-                configure.OperationProcessors.Add(new AspNetCoreOperationSecurityScopeProcessor("JWT"));
-            });
+            services.AddSwaggerGen();
+
+            
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -85,15 +73,18 @@ namespace DarInternet.WebUI
             app.UseHealthChecks("/health");
             app.UseHttpsRedirection();
             app.UseStaticFiles();
-            
 
-            app.UseSwaggerUi3(settings =>
+            app.UseSwagger();
+
+            app.UseSwaggerUI(c =>
             {
-                settings.Path = "/api";
-                settings.DocumentPath = "/api/specification.json";
+                c.SwaggerEndpoint("/swagger/v1/swagger.json", "DarInternet API V1");
+                c.RoutePrefix = string.Empty;
             });
 
             app.UseRouting();
+
+            
 
             app.UseAuthentication();
             app.UseAuthorization();
