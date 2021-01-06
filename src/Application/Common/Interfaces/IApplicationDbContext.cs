@@ -11,6 +11,14 @@ namespace DarInternet.Application.Common.Interfaces
 
         DbSet<TodoItem> TodoItems { get; set; }
 
+        DbSet<Organization> Organizations {get;set;}
+
+        DbSet<Conversation> Conversations {get;set;}
+
+        DbSet<ConversationUser> ConversationUsers {get;set;}
+
+        DbSet<ConversationMessage> ConversationMessages {get;set;}
+
         Task<int> SaveChangesAsync(CancellationToken cancellationToken);
     }
 }

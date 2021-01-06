@@ -15,6 +15,7 @@ using System;
 using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
+using DarInternet.Domain.Entities;
 
 [SetUpFixture]
 public class Testing

@@ -3,15 +3,17 @@ using System;
 using DarInternet.Infrastructure.Persistence;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 
 namespace DarInternet.Infrastructure.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20210106162239_AddConversationTable")]
+    partial class AddConversationTable
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -95,9 +97,6 @@ namespace DarInternet.Infrastructure.Migrations
                     b.Property<string>("CreatedBy")
                         .HasColumnType("text");
 
-                    b.Property<bool>("IsClosed")
-                        .HasColumnType("boolean");
-
                     b.Property<DateTime?>("LastModified")
                         .HasColumnType("timestamp without time zone");
 
@@ -108,85 +107,13 @@ namespace DarInternet.Infrastructure.Migrations
                         .HasColumnType("uuid");
 
                     b.Property<string>("Title")
-                        .IsRequired()
-                        .HasMaxLength(1000)
-                        .HasColumnType("character varying(1000)");
+                        .HasColumnType("text");
 
                     b.HasKey("Id");
 
                     b.HasIndex("OrganizationId");
 
                     b.ToTable("Conversations");
-                });
-
-            modelBuilder.Entity("DarInternet.Domain.Entities.ConversationMessage", b =>
-                {
-                    b.Property<Guid>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("uuid");
-
-                    b.Property<Guid>("ConversationId")
-                        .HasColumnType("uuid");
-
-                    b.Property<DateTime>("Created")
-                        .HasColumnType("timestamp without time zone");
-
-                    b.Property<string>("CreatedBy")
-                        .HasColumnType("text");
-
-                    b.Property<DateTime?>("LastModified")
-                        .HasColumnType("timestamp without time zone");
-
-                    b.Property<string>("LastModifiedBy")
-                        .HasColumnType("text");
-
-                    b.Property<string>("Message")
-                        .IsRequired()
-                        .HasColumnType("text");
-
-                    b.Property<string>("UserId")
-                        .HasColumnType("text");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("ConversationId");
-
-                    b.HasIndex("UserId");
-
-                    b.ToTable("ConversationMessages");
-                });
-
-            modelBuilder.Entity("DarInternet.Domain.Entities.ConversationUser", b =>
-                {
-                    b.Property<Guid>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("uuid");
-
-                    b.Property<Guid>("ConversationId")
-                        .HasColumnType("uuid");
-
-                    b.Property<DateTime>("Created")
-                        .HasColumnType("timestamp without time zone");
-
-                    b.Property<string>("CreatedBy")
-                        .HasColumnType("text");
-
-                    b.Property<DateTime?>("LastModified")
-                        .HasColumnType("timestamp without time zone");
-
-                    b.Property<string>("LastModifiedBy")
-                        .HasColumnType("text");
-
-                    b.Property<string>("UserId")
-                        .HasColumnType("text");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("ConversationId");
-
-                    b.HasIndex("UserId");
-
-                    b.ToTable("ConversationUsers");
                 });
 
             modelBuilder.Entity("DarInternet.Domain.Entities.Organization", b =>
@@ -469,40 +396,6 @@ namespace DarInternet.Infrastructure.Migrations
                     b.Navigation("Organization");
                 });
 
-            modelBuilder.Entity("DarInternet.Domain.Entities.ConversationMessage", b =>
-                {
-                    b.HasOne("DarInternet.Domain.Entities.Conversation", "Conversation")
-                        .WithMany("ConversationMessages")
-                        .HasForeignKey("ConversationId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("DarInternet.Domain.Entities.ApplicationUser", "User")
-                        .WithMany("ConversationMessages")
-                        .HasForeignKey("UserId");
-
-                    b.Navigation("Conversation");
-
-                    b.Navigation("User");
-                });
-
-            modelBuilder.Entity("DarInternet.Domain.Entities.ConversationUser", b =>
-                {
-                    b.HasOne("DarInternet.Domain.Entities.Conversation", "Conversation")
-                        .WithMany("ConversationUsers")
-                        .HasForeignKey("ConversationId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("DarInternet.Domain.Entities.ApplicationUser", "User")
-                        .WithMany("ConversationUsers")
-                        .HasForeignKey("UserId");
-
-                    b.Navigation("Conversation");
-
-                    b.Navigation("User");
-                });
-
             modelBuilder.Entity("DarInternet.Domain.Entities.OrganizationUser", b =>
                 {
                     b.HasOne("DarInternet.Domain.Entities.Organization", "Organization")
@@ -607,18 +500,7 @@ namespace DarInternet.Infrastructure.Migrations
 
             modelBuilder.Entity("DarInternet.Domain.Entities.ApplicationUser", b =>
                 {
-                    b.Navigation("ConversationMessages");
-
-                    b.Navigation("ConversationUsers");
-
                     b.Navigation("OrganizationUsers");
-                });
-
-            modelBuilder.Entity("DarInternet.Domain.Entities.Conversation", b =>
-                {
-                    b.Navigation("ConversationMessages");
-
-                    b.Navigation("ConversationUsers");
                 });
 
             modelBuilder.Entity("DarInternet.Domain.Entities.Organization", b =>

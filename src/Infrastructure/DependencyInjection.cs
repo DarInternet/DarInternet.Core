@@ -3,6 +3,7 @@ using DarInternet.Infrastructure.Files;
 using DarInternet.Infrastructure.Identity;
 using DarInternet.Infrastructure.Persistence;
 using DarInternet.Infrastructure.Services;
+using DarInternet.Domain.Entities;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;

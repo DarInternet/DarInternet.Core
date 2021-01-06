@@ -32,6 +32,14 @@ namespace DarInternet.Infrastructure.Persistence
 
         public DbSet<TodoList> TodoLists { get; set; }
 
+        public DbSet<Organization> Organizations {get;set;}
+
+        public DbSet<Conversation> Conversations {get;set;}
+
+        public DbSet<ConversationUser> ConversationUsers {get;set;}
+        
+        public DbSet<ConversationMessage> ConversationMessages { get;set; }
+
         public override async Task<int> SaveChangesAsync(CancellationToken cancellationToken = new CancellationToken())
         {
             foreach (Microsoft.EntityFrameworkCore.ChangeTracking.EntityEntry<AuditableEntity> entry in ChangeTracker.Entries<AuditableEntity>())

@@ -1,5 +1,5 @@
-using DarInternet.Infrastructure.Identity;
 using DarInternet.Infrastructure.Persistence;
+using DarInternet.Domain.Entities;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;

@@ -1,5 +1,6 @@
 ﻿using DarInternet.Application.Common.Interfaces;
 using DarInternet.Application.Common.Models;
+using DarInternet.Domain.Entities;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
