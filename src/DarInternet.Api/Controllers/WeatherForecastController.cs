@@ -3,7 +3,7 @@ using Microsoft.AspNetCore.Mvc;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
-namespace DarInternet.WebUI.Controllers
+namespace DarInternet.Api.Controllers
 {
     public class WeatherForecastController : ApiControllerBase
     {

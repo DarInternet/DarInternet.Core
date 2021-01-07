@@ -20,8 +20,8 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\src\Application\Application.csproj" />
-    <ProjectReference Include="..\..\src\Infrastructure\Infrastructure.csproj" />
+    <ProjectReference Include="..\..\src\DarInternet.Application\DarInternet.Application.csproj" />
+    <ProjectReference Include="..\..\src\DarInternet.Infrastructure\DarInternet.Infrastructure.csproj" />
   </ItemGroup>
 
 </Project>

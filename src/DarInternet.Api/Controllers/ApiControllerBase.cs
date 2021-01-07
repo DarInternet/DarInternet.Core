@@ -2,7 +2,7 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.DependencyInjection;
 
-namespace DarInternet.WebUI.Controllers
+namespace DarInternet.Api.Controllers
 {
     [ApiController]
     [Route("api/[controller]")]

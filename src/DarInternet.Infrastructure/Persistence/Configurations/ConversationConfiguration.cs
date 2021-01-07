@@ -2,7 +2,7 @@ using DarInternet.Domain.Entities;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
-namespace Infrastructure.Persistence.Configurations
+namespace DarInternet.Infrastructure.Persistence.Configurations
 {
     public class ConversationConfiguration : IEntityTypeConfiguration<Conversation>
     {

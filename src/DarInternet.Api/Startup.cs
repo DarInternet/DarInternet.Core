@@ -2,8 +2,8 @@ using DarInternet.Application;
 using DarInternet.Application.Common.Interfaces;
 using DarInternet.Infrastructure;
 using DarInternet.Infrastructure.Persistence;
-using DarInternet.WebUI.Filters;
-using DarInternet.WebUI.Services;
+using DarInternet.Api.Filters;
+using DarInternet.Api.Services;
 using FluentValidation.AspNetCore;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -13,7 +13,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using System.Linq;
 
-namespace DarInternet.WebUI
+namespace DarInternet.Api
 {
     public class Startup
     {

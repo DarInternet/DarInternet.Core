@@ -9,7 +9,7 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using System.Threading.Tasks;
 
-namespace DarInternet.WebUI.Controllers
+namespace DarInternet.Api.Controllers
 {
     [Authorize]
     public class TodoItemsController : ApiControllerBase

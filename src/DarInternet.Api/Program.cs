@@ -9,7 +9,7 @@ using Microsoft.Extensions.Logging;
 using System;
 using System.Threading.Tasks;
 
-namespace DarInternet.WebUI
+namespace DarInternet.Api
 {
     public class Program
     {

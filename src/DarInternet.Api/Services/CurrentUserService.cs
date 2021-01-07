@@ -2,7 +2,7 @@
 using Microsoft.AspNetCore.Http;
 using System.Security.Claims;
 
-namespace DarInternet.WebUI.Services
+namespace DarInternet.Api.Services
 {
     public class CurrentUserService : ICurrentUserService
     {

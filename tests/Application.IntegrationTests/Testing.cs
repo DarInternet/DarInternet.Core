@@ -1,7 +1,7 @@
 ﻿using DarInternet.Application.Common.Interfaces;
 using DarInternet.Infrastructure.Identity;
 using DarInternet.Infrastructure.Persistence;
-using DarInternet.WebUI;
+using DarInternet.Api;
 using MediatR;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Identity;
@@ -41,7 +41,7 @@ public class Testing
 
         services.AddSingleton(Mock.Of<IWebHostEnvironment>(w =>
             w.EnvironmentName == "Development" &&
-            w.ApplicationName == "DarInternet.WebUI"));
+            w.ApplicationName == "DarInternet.Api"));
 
         services.AddLogging();
 

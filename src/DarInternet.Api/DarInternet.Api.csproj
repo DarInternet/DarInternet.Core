@@ -2,8 +2,8 @@
 
   <PropertyGroup>
     <TargetFramework>net5.0</TargetFramework>
-    <RootNamespace>DarInternet.WebUI</RootNamespace>
-    <AssemblyName>DarInternet.WebUI</AssemblyName>
+    <RootNamespace>DarInternet.Api</RootNamespace>
+    <AssemblyName>DarInternet.Api</AssemblyName>
     <IsPackable>true</IsPackable>
   </PropertyGroup>
 
@@ -19,8 +19,8 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Application\Application.csproj" />
-    <ProjectReference Include="..\Infrastructure\Infrastructure.csproj" />
+    <ProjectReference Include="..\DarInternet.Application\DarInternet.Application.csproj" />
+    <ProjectReference Include="..\DarInternet.Infrastructure\DarInternet.Infrastructure.csproj" />
   </ItemGroup>
 
 </Project>
