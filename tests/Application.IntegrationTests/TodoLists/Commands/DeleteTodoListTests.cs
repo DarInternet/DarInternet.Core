@@ -1,6 +1,6 @@
 ﻿using DarInternet.Application.Common.Exceptions;
-using DarInternet.Application.TodoLists.Commands.CreateTodoList;
-using DarInternet.Application.TodoLists.Commands.DeleteTodoList;
+using DarInternet.Application.Features.TodoLists.Commands.CreateTodoList;
+using DarInternet.Application.Features.TodoLists.Commands.DeleteTodoList;
 using DarInternet.Domain.Entities;
 using FluentAssertions;
 using NUnit.Framework;

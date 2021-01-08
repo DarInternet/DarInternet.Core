@@ -1,6 +1,6 @@
 ﻿using AutoMapper;
 using DarInternet.Application.Common.Mappings;
-using DarInternet.Application.TodoLists.Queries.GetTodos;
+using DarInternet.Application.Features.TodoLists.Queries.GetTodos;
 using DarInternet.Domain.Entities;
 using NUnit.Framework;
 using System;

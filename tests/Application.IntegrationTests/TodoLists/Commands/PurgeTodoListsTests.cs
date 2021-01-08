@@ -1,8 +1,8 @@
 ﻿using DarInternet.Application.Common.Exceptions;
 using DarInternet.Application.Common.Security;
-using DarInternet.Application.TodoLists.Commands.CreateTodoList;
-using DarInternet.Application.TodoLists.Commands.PurgeTodoLists;
-using DarInternet.Application.TodoLists.Queries.ExportTodos;
+using DarInternet.Application.Features.TodoLists.Commands.CreateTodoList;
+using DarInternet.Application.Features.TodoLists.Commands.PurgeTodoLists;
+using DarInternet.Application.Features.TodoLists.Queries.ExportTodos;
 using DarInternet.Domain.Entities;
 using FluentAssertions;
 using NUnit.Framework;
