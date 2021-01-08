@@ -1,4 +1,4 @@
-﻿using DarInternet.Application.WeatherForecasts.Queries.GetWeatherForecasts;
+﻿using DarInternet.Application.Features.WeatherForecasts.Queries.GetWeatherForecasts;
 using Microsoft.AspNetCore.Mvc;
 using System.Collections.Generic;
 using System.Threading.Tasks;

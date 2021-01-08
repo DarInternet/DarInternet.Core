@@ -1,8 +1,8 @@
 ﻿using DarInternet.Application.Common.Exceptions;
-using DarInternet.Application.TodoItems.Commands.CreateTodoItem;
-using DarInternet.Application.TodoItems.Commands.UpdateTodoItem;
-using DarInternet.Application.TodoItems.Commands.UpdateTodoItemDetail;
-using DarInternet.Application.TodoLists.Commands.CreateTodoList;
+using DarInternet.Application.Features.TodoItems.Commands.CreateTodoItem;
+using DarInternet.Application.Features.TodoItems.Commands.UpdateTodoItem;
+using DarInternet.Application.Features.TodoItems.Commands.UpdateTodoItemDetail;
+using DarInternet.Application.Features.TodoLists.Commands.CreateTodoList;
 using DarInternet.Domain.Entities;
 using DarInternet.Domain.Enums;
 using FluentAssertions;

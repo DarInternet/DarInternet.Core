@@ -1,10 +1,10 @@
 ﻿using DarInternet.Application.Common.Models;
-using DarInternet.Application.TodoItems.Commands.CreateTodoItem;
-using DarInternet.Application.TodoItems.Commands.DeleteTodoItem;
-using DarInternet.Application.TodoItems.Commands.UpdateTodoItem;
-using DarInternet.Application.TodoItems.Commands.UpdateTodoItemDetail;
-using DarInternet.Application.TodoItems.Queries.GetTodoItemsWithPagination;
-using DarInternet.Application.TodoLists.Queries.GetTodos;
+using DarInternet.Application.Features.TodoItems.Commands.CreateTodoItem;
+using DarInternet.Application.Features.TodoItems.Commands.DeleteTodoItem;
+using DarInternet.Application.Features.TodoItems.Commands.UpdateTodoItem;
+using DarInternet.Application.Features.TodoItems.Commands.UpdateTodoItemDetail;
+using DarInternet.Application.Features.TodoItems.Queries.GetTodoItemsWithPagination;
+using DarInternet.Application.Features.TodoLists.Queries.GetTodos;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using System.Threading.Tasks;

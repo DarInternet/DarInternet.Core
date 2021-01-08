@@ -1,8 +1,8 @@
-﻿using DarInternet.Application.TodoLists.Commands.CreateTodoList;
-using DarInternet.Application.TodoLists.Commands.DeleteTodoList;
-using DarInternet.Application.TodoLists.Commands.UpdateTodoList;
-using DarInternet.Application.TodoLists.Queries.ExportTodos;
-using DarInternet.Application.TodoLists.Queries.GetTodos;
+﻿using DarInternet.Application.Features.TodoLists.Commands.CreateTodoList;
+using DarInternet.Application.Features.TodoLists.Commands.DeleteTodoList;
+using DarInternet.Application.Features.TodoLists.Commands.UpdateTodoList;
+using DarInternet.Application.Features.TodoLists.Queries.ExportTodos;
+using DarInternet.Application.Features.TodoLists.Queries.GetTodos;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using System.Threading.Tasks;
