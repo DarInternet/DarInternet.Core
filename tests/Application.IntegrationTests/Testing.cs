@@ -16,6 +16,7 @@ using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
 using DarInternet.Domain.Entities;
+using Npgsql;
 
 [SetUpFixture]
 public class Testing
@@ -28,6 +29,7 @@ public class Testing
     [OneTimeSetUp]
     public void RunBeforeAnyTests()
     {
+
         var builder = new ConfigurationBuilder()
             .SetBasePath(Directory.GetCurrentDirectory())
             .AddJsonFile("appsettings.json", true, true)
@@ -62,7 +64,12 @@ public class Testing
 
         _checkpoint = new Checkpoint
         {
-            TablesToIgnore = new[] { "__EFMigrationsHistory" }
+            TablesToIgnore = new[] { "__EFMigrationsHistory" },
+            SchemasToInclude = new[]
+            {
+                "public"
+            },
+            DbAdapter = DbAdapter.Postgres
         };
 
         EnsureDatabase();
@@ -73,6 +80,8 @@ public class Testing
         using var scope = _scopeFactory.CreateScope();
 
         var context = scope.ServiceProvider.GetService<ApplicationDbContext>();
+
+
 
         context.Database.Migrate();
     }
@@ -132,7 +141,12 @@ public class Testing
 
     public static async Task ResetState()
     {
-        await _checkpoint.Reset(_configuration.GetConnectionString("DefaultConnection"));
+        using (var conn = new NpgsqlConnection(_configuration.GetConnectionString("DefaultConnection")))
+        {
+            await conn.OpenAsync();
+
+            await _checkpoint.Reset(conn);
+        }
         _currentUserId = null;
     }
 
