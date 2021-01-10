@@ -1,4 +1,7 @@
 ### DarInternet.Api
+
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/a3b6d66cecbc4d738fd8e94aad2e4b50)](https://app.codacy.com/gh/DarInternet/DarInternet.Core?utm_source=github.com&utm_medium=referral&utm_content=DarInternet/DarInternet.Core&utm_campaign=Badge_Grade_Settings)
+
 Backend APIs for **DarInternet** integrated customer support
 
 
