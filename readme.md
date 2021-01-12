@@ -13,7 +13,7 @@ To run this project you need to download prerequisites as listed below.
 You need to download and install [.NET 5 SDK](https://dotnet.microsoft.com/download/dotnet/5.0) for your platform.
 
 ### Build 
-After clonning the project, run the following command in root folder:
+After cloning the project, run the following command in root folder:
 
 `dotnet build`
 
