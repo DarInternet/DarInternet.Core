@@ -3,15 +3,17 @@ using System;
 using DarInternet.Infrastructure.Persistence;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 
 namespace DarInternet.Infrastructure.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20210111163636_CheckOrganizationUserTable")]
+    partial class CheckOrganizationUserTable
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -242,7 +244,6 @@ namespace DarInternet.Infrastructure.Migrations
                         .HasColumnType("integer");
 
                     b.Property<string>("UserId")
-                        .IsRequired()
                         .HasColumnType("text");
 
                     b.HasKey("Id");
@@ -514,9 +515,7 @@ namespace DarInternet.Infrastructure.Migrations
 
                     b.HasOne("DarInternet.Domain.Entities.ApplicationUser", "User")
                         .WithMany("OrganizationUsers")
-                        .HasForeignKey("UserId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("UserId");
 
                     b.Navigation("Organization");
 

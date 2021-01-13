@@ -34,6 +34,8 @@ namespace DarInternet.Infrastructure.Persistence
 
         public DbSet<Organization> Organizations {get;set;}
 
+        public DbSet<OrganizationUser> OrganizationUsers {get;set;}
+
         public DbSet<Conversation> Conversations {get;set;}
 
         public DbSet<ConversationUser> ConversationUsers {get;set;}

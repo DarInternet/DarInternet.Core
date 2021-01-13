@@ -13,6 +13,8 @@ namespace DarInternet.Application.Common.Interfaces
 
         DbSet<Organization> Organizations {get;set;}
 
+        DbSet<OrganizationUser> OrganizationUsers {get;set;}
+
         DbSet<Conversation> Conversations {get;set;}
 
         DbSet<ConversationUser> ConversationUsers {get;set;}
