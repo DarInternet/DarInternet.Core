@@ -17,6 +17,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using DarInternet.Domain.Entities;
 using Npgsql;
+using System.Collections.Generic;
 
 [SetUpFixture]
 public class Testing
@@ -73,6 +74,7 @@ public class Testing
         };
 
         EnsureDatabase();
+
     }
 
     private static void EnsureDatabase()
@@ -81,9 +83,8 @@ public class Testing
 
         var context = scope.ServiceProvider.GetService<ApplicationDbContext>();
 
-
-
         context.Database.Migrate();
+
     }
 
     public static async Task<TResponse> SendAsync<TResponse>(IRequest<TResponse> request)
@@ -111,32 +112,44 @@ public class Testing
 
         var userManager = scope.ServiceProvider.GetService<UserManager<ApplicationUser>>();
 
-        var user = new ApplicationUser { UserName = userName, Email = userName };
+        var user = await userManager.FindByNameAsync(userName);
 
-        var result = await userManager.CreateAsync(user, password);
-
-        if (roles.Any())
-        {
-            var roleManager = scope.ServiceProvider.GetService<RoleManager<IdentityRole>>();
-
-            foreach (var role in roles)
-            {
-                await roleManager.CreateAsync(new IdentityRole(role));
-            }
-
-            await userManager.AddToRolesAsync(user, roles);
-        }
-
-        if (result.Succeeded)
+        if (user !=null)
         {
             _currentUserId = user.Id;
 
             return _currentUserId;
         }
+        else
+        {
+            user = new ApplicationUser { UserName = userName, Email = userName };
 
-        var errors = string.Join(Environment.NewLine, result.ToApplicationResult().Errors);
+            var result = await userManager.CreateAsync(user, password);
 
-        throw new Exception($"Unable to create {userName}.{Environment.NewLine}{errors}");
+            if (roles.Any())
+            {
+                var roleManager = scope.ServiceProvider.GetService<RoleManager<IdentityRole>>();
+
+                foreach (var role in roles)
+                {
+                    await roleManager.CreateAsync(new IdentityRole(role));
+                }
+
+                await userManager.AddToRolesAsync(user, roles);
+            }
+
+            if (result.Succeeded)
+            {
+                _currentUserId = user.Id;
+
+                return _currentUserId;
+            }
+
+            var errors = string.Join(Environment.NewLine, result.ToApplicationResult().Errors);
+
+            throw new Exception($"Unable to create {userName}.{Environment.NewLine}{errors}");
+        }
+        
     }
 
     public static async Task ResetState()
@@ -160,6 +173,15 @@ public class Testing
         return await context.FindAsync<TEntity>(keyValues);
     }
 
+
+    //ToDo: I removed using in this Disposable object which is wrong. We should add another method to perform query on related tables
+    public static ApplicationDbContext GetContext()
+    {
+        var scope = _scopeFactory.CreateScope();
+
+        return scope.ServiceProvider.GetService<ApplicationDbContext>();
+    }
+
     public static async Task AddAsync<TEntity>(TEntity entity)
         where TEntity : class
     {
@@ -168,6 +190,18 @@ public class Testing
         var context = scope.ServiceProvider.GetService<ApplicationDbContext>();
 
         context.Add(entity);
+
+        await context.SaveChangesAsync();
+    }
+
+    public static async Task AddRangeAsync<TEntity>(IEnumerable<TEntity> entities)
+        where TEntity : class
+    {
+        using var scope = _scopeFactory.CreateScope();
+
+        var context = scope.ServiceProvider.GetService<ApplicationDbContext>();
+
+        context.AddRange(entities);
 
         await context.SaveChangesAsync();
     }
