@@ -25,7 +25,7 @@ To run unit tests and intergration tests you can use the following command in ro
 ## Run API Project
 To serve API project, run following command in root folder:
 
-`dotnet run -p src/Api`
+`dotnet run -p src/DarInternet.Api`
 
 Then open your browser and go to `https://localhost:5001/api"
 
