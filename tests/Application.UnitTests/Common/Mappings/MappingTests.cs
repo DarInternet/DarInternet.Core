@@ -1,6 +1,7 @@
 ﻿using AutoMapper;
 using DarInternet.Application.Common.Mappings;
-using DarInternet.Application.Features.TodoLists.Queries.GetTodos;
+using DarInternet.Application.Features.Organizations.SharedDto;
+using DarInternet.Application.Features.Tickets.SharedDto;
 using DarInternet.Domain.Entities;
 using NUnit.Framework;
 using System;
@@ -30,8 +31,9 @@ namespace DarInternet.Application.UnitTests.Common.Mappings
         }
         
         [Test]
-        [TestCase(typeof(TodoList), typeof(TodoListDto))]
-        [TestCase(typeof(TodoItem), typeof(TodoItemDto))]
+        [TestCase(typeof(Organization), typeof(OrganizationDto))]
+        [TestCase(typeof(Conversation), typeof(TicketDto))]
+        [TestCase(typeof(ConversationMessage), typeof(TicketMessageDto))]
         public void ShouldSupportMappingFromSourceToDestination(Type source, Type destination)
         {
             var instance = GetInstanceOf(source);

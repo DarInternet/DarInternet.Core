@@ -7,10 +7,6 @@ namespace DarInternet.Application.Common.Interfaces
 {
     public interface IApplicationDbContext
     {
-        DbSet<TodoList> TodoLists { get; set; }
-
-        DbSet<TodoItem> TodoItems { get; set; }
-
         DbSet<Organization> Organizations {get;set;}
 
         DbSet<OrganizationUser> OrganizationUsers {get;set;}
