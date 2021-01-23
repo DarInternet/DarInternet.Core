@@ -1,5 +1,4 @@
 ﻿using DarInternet.Application.Common.Interfaces;
-using DarInternet.Infrastructure.Files;
 using DarInternet.Infrastructure.Identity;
 using DarInternet.Infrastructure.Persistence;
 using DarInternet.Infrastructure.Services;
@@ -40,7 +39,6 @@ namespace DarInternet.Infrastructure
 
             services.AddTransient<IDateTime, DateTimeService>();
             services.AddTransient<IIdentityService, IdentityService>();
-            services.AddTransient<ICsvFileBuilder, CsvFileBuilder>();
 
             services.AddAuthentication();
 

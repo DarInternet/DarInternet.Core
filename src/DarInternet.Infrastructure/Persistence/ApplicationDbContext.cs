@@ -28,10 +28,6 @@ namespace DarInternet.Infrastructure.Persistence
             _dateTime = dateTime;
         }
 
-        public DbSet<TodoItem> TodoItems { get; set; }
-
-        public DbSet<TodoList> TodoLists { get; set; }
-
         public DbSet<Organization> Organizations {get;set;}
 
         public DbSet<OrganizationUser> OrganizationUsers {get;set;}
