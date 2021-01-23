@@ -106,6 +106,21 @@ public class Testing
         return await RunAsUserAsync("administrator@local", "Administrator1234!", new[] { "Administrator" });
     }
 
+    public static async Task<string> RunAsOperator1UserAsync()
+    {
+        return await RunAsUserAsync("op1@local", "OperatorOne1234!", new string[] { });
+    }
+
+    public static async Task<string> RunAsOperator2UserAsync()
+    {
+        return await RunAsUserAsync("op2@local", "OperatorTwo1234!", new string[] { });
+    }
+
+    public static async Task<string> RunAsCustomer1UserAsync()
+    {
+        return await RunAsUserAsync("customer1@local", "CustomerOne1234!", new string[] { });
+    }
+
     public static async Task<string> RunAsUserAsync(string userName, string password, string[] roles)
     {
         using var scope = _scopeFactory.CreateScope();
