@@ -85,11 +85,10 @@ namespace Application.IntegrationTests.Tickets.Commands
         [Test]
         public void CreateTicketResponseCommand_WithInvalidConversationId_ShouldThrowNotFoundException()
         {
-            var invalidConversationId = new Guid("ef1dc766-98f5-424f-ad4c-0fb42a690140");
 
             var command = new CreateTicketResponseCommand
             {
-                ConversationId = invalidConversationId,
+                ConversationId = Guid.NewGuid(),
                 Message="Test"
             };
 
