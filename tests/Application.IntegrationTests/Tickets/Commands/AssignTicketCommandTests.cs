@@ -99,11 +99,9 @@ namespace Application.IntegrationTests.Tickets.Commands
         {
             var defaultUserId = await RunAsDefaultUserAsync();
 
-            var invalidConversationId = new Guid("ef1dc766-98f5-424f-ad4c-0fb42a690140");
-
             var command = new AssignTicketCommand
             {
-                ConversationId = invalidConversationId,
+                ConversationId = Guid.NewGuid(),
                 UserId = defaultUserId,
                 ShouldRemovePreviousUsers = false
             };
