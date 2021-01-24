@@ -139,11 +139,10 @@ namespace Application.IntegrationTests.Tickets.Commands
         [Test]
         public void CreateTicketCommand_WithInvalidOrganizationId_ShouldThrowNotFoundException()
         {
-            var invalidOrganizationId = new Guid("ef1dc766-98f5-424f-ad4c-0fb42a690140");
 
             var command = new CreateTicketCommand
             {
-                OrganizationId = invalidOrganizationId,
+                OrganizationId = Guid.NewGuid(),
                 Title = "Test",
                 Message="Test"
             };
