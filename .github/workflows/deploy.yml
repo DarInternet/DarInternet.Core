@@ -5,12 +5,24 @@ on:
   push:
     branches: [ main ]
 
-jobs:
+jobs:  
   deploy:
 
     runs-on: ubuntu-latest
 
     steps:
+    - uses: naminodarie/get-net-sdk-project-versions-action@v1
+      id: get-version
+      with:
+        proj-path: src/DarInternet.Api.csproj
+    - run: echo "${{steps.get-version.outputs.version}}"
+    - run: echo "${{steps.get-version.outputs.version-prefix}}" 
+    - run: echo "${{steps.get-version.outputs.version-suffix}}" 
+    - run: echo "${{steps.get-version.outputs.package-version}}" 
+    - run: echo "${{steps.get-version.outputs.assembly-version}}" 
+    - run: echo "${{steps.get-version.outputs.file-version}}" 
+    - run: echo "${{steps.get-version.outputs.informational-version}}" 
+        
     - uses: actions/checkout@v2
     - name: Set up Python 3.9
       uses: actions/setup-python@v2
