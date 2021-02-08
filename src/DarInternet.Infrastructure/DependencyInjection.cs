@@ -24,7 +24,7 @@ namespace DarInternet.Infrastructure
             {
                 services.AddDbContext<ApplicationDbContext>(options =>
                     options.UseNpgsql(
-                        configuration.GetConnectionString("DefaultConnection"),
+                        configuration.GetConnectionString("DarInternetDatabase"),
                         b => b.MigrationsAssembly(typeof(ApplicationDbContext).Assembly.FullName)));
             }
 

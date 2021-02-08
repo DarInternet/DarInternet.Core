@@ -1,0 +1,16 @@
+kind: ExternalService
+name: api
+spec:
+  image: darinternet-api:${IMAGE_VERSION}
+  port: 80
+  domains:
+    - name: api.darinternet.com
+  env:
+    - name: ConnectionStrings__DarInternetDatabase
+      secret : db-connection-string
+    - name: DarInternetConfig__AllowedClientUrl
+      secret : client-url
+    - name: DarInternetConfig__IdentityServerUrl
+      secret : identity-server-url
+    - name: DarInternetConfig__ApiBaseUrl
+      secret : api-url

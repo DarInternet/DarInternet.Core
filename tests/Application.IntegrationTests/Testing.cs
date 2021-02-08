@@ -169,7 +169,7 @@ public class Testing
 
     public static async Task ResetState()
     {
-        using (var conn = new NpgsqlConnection(_configuration.GetConnectionString("DefaultConnection")))
+        using (var conn = new NpgsqlConnection(_configuration.GetConnectionString("DarInternetDatabase")))
         {
             await conn.OpenAsync();
 
