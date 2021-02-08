@@ -5,6 +5,7 @@
     <RootNamespace>DarInternet.Api</RootNamespace>
     <AssemblyName>DarInternet.Api</AssemblyName>
     <IsPackable>true</IsPackable>
+    <Version>0.1.0</Version>
     <UserSecretsId>fbc4de6d-357a-4b87-8870-a4f0e23b0a85</UserSecretsId>
     <DockerDefaultTargetOS>Linux</DockerDefaultTargetOS>
     <DockerfileContext>..\..</DockerfileContext>
