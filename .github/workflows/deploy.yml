@@ -26,3 +26,9 @@ jobs:
     - name: Change Fandogh namespace
       run: |
         fandogh namespace active --name ${{ secrets.FANDOGH_NAMESPACE }}
+    - name: Publish image to Fandogh
+      run: |
+        fandogh image publish
+    - name: Deploy fandogh image
+      run: |
+        fandogh service apply -f fandogh.yml
