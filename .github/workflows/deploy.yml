@@ -18,11 +18,11 @@ jobs:
       with:
         python-version: 3.9
         
-    - name: Get API project Version info
+    - name: Get version
       uses: naminodarie/get-net-sdk-project-versions-action@v1
       id: get-version
       with:
-         proj-path: src\DarInternet.Api\DarInternet.Api.csproj
+         proj-path: src/DarInternet.Api/DarInternet.Api.csproj
          
     - name: Install Fandogh CLI
       run: |
