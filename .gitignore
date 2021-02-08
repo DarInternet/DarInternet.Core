@@ -237,3 +237,6 @@ _Pvt_Extensions
 
 # Visual Studio Code
 .vscode/
+
+# Mac
+.DS_Store
