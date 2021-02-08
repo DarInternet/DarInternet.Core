@@ -11,17 +11,19 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - name: Get API project Version info
-      uses: naminodarie/get-net-sdk-project-versions-action@v1
-      id: get-version
-      with:
-         proj-path: src\DarInternet.Api\DarInternet.Api.csproj
         
     - uses: actions/checkout@v2
     - name: Set up Python 3.9
       uses: actions/setup-python@v2
       with:
         python-version: 3.9
+        
+    - name: Get API project Version info
+      uses: naminodarie/get-net-sdk-project-versions-action@v1
+      id: get-version
+      with:
+         proj-path: src\DarInternet.Api\DarInternet.Api.csproj
+         
     - name: Install Fandogh CLI
       run: |
         python -m pip install --upgrade pip
