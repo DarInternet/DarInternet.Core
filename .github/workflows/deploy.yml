@@ -22,7 +22,7 @@ jobs:
         pip install fandogh_cli --upgrade
     - name: Login to Fandogh
       run: |
-        COLLECT_ERROR=True fandogh login --username ${{ secrets.FANDOGH_USERNAME }} --password ${{ secrets.FANDOGH_PASSWORD }}
+        COLLECT_ERROR=True fandogh login --username "${{ secrets.FANDOGH_USERNAME }}" --password "${{ secrets.FANDOGH_PASSWORD }}"
     - name: Change Fandogh namespace
       run: |
         fandogh namespace active --name ${{ secrets.FANDOGH_NAMESPACE }}
