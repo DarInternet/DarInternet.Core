@@ -14,7 +14,7 @@ jobs:
     - uses: naminodarie/get-net-sdk-project-versions-action@v1
       id: get-version
       with:
-        proj-path: src/DarInternet.Api/DarInternet.Api.csproj
+        proj-path: ./src/DarInternet.Api/DarInternet.Api.csproj
     - run: echo "${{steps.get-version.outputs.version}}"
     - run: echo "${{steps.get-version.outputs.version-prefix}}" 
     - run: echo "${{steps.get-version.outputs.version-suffix}}" 
