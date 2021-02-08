@@ -1,6 +1,7 @@
 ## DarInternet API
 
 [![Codacy Badge](https://api.codacy.com/project/badge/Grade/a3b6d66cecbc4d738fd8e94aad2e4b50)](https://app.codacy.com/gh/DarInternet/DarInternet.Core?utm_source=github.com&utm_medium=referral&utm_content=DarInternet/DarInternet.Core&utm_campaign=Badge_Grade_Settings)
+![Deploy to Fandogh](https://github.com/DarInternet/DarInternet.Core/workflows/Deploy%20to%20Fandogh/badge.svg?branch=main)
 [![time tracker](https://wakatime.com/badge/github/DarInternet/DarInternet.Core.svg)](https://wakatime.com/badge/github/DarInternet/DarInternet.Core)
 
 Backend APIs for **DarInternet** integrated customer support
