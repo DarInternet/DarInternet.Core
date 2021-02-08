@@ -36,7 +36,7 @@ jobs:
         fandogh namespace active --name ${{ secrets.FANDOGH_NAMESPACE }}
     - name: Publish image to Fandogh
       run: |
-        fandogh image publish --version latest
+        fandogh image publish --version {{steps.get-version.outputs.version}}
     - name: Deploy fandogh image
       run: |
-        fandogh service apply -f fandogh.yml -p IMAGE_VERSION=latest
+        fandogh service apply -f fandogh.yml -p IMAGE_VERSION={{steps.get-version.outputs.version}}
